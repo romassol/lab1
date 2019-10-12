@@ -19,6 +19,11 @@ public:
         melodyLength = 0;
     }
 
+    bool isMelodyEnd()
+    {
+        return currentNote == 0;
+    }
+
     void turnSoundOn()
     {
         isEnabled = true;

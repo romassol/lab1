@@ -15,7 +15,8 @@ Buzzer buzzer(PIN_BUZZER);
 int notes[] = {NOTE_G3, NOTE_SILENCE, NOTE_G3, NOTE_SILENCE, NOTE_G3, NOTE_SILENCE, NOTE_G3, NOTE_SILENCE};
 double durations[] = {1, 1, 1, 1, 1, 1, 1, 1};
 int melodyLength = 8;
-bool pif = false;
+int red = 40;
+bool step = false;
 
 
 void setup()
@@ -38,14 +39,22 @@ void loop()
     
     if (button.wasPressed())
     {
-        pif = true;
         buzzer.turnSoundOn();
-        set_rgb_led(255, 69, 0);
     }
-    if (pif)
+    if (!buzzer.isMelodyEnd())
     {
-        buzzer.playSound();
+        if (step)
+        {
+            set_rgb_led(red, 0, 0);
+            step = false;
+        }
+        else
+        {
+            set_rgb_led(red+200, 0, 0);
+            step = true;
+        }
     }
+    buzzer.playSound();
 }
 
 void set_rgb_led(int r, int g, int b)

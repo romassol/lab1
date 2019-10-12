@@ -20,9 +20,9 @@ bool pif = false;
 
 void setup()
 {
-//    pinMode(R_OUT, OUTPUT);
-//    pinMode(G_OUT, OUTPUT);
-//    pinMode(B_OUT, OUTPUT);
+    pinMode(R_OUT, OUTPUT);
+    pinMode(G_OUT, OUTPUT);
+    pinMode(B_OUT, OUTPUT);
 
     buzzer.setMelody(notes, durations, melodyLength);
     buzzer.turnSoundOn();
@@ -33,14 +33,14 @@ void loop()
     if (buzzer.isMelodyEnd())
     {
         buzzer.turnSoundOff();
-//        set_rgb_led(0, 0, 0);
+        set_rgb_led(0, 0, 0);
     }
     
     if (button.wasPressed())
     {
         pif = true;
         buzzer.turnSoundOn();
-//        set_rgb_led(255, 69, 0);
+        set_rgb_led(255, 69, 0);
     }
     if (pif)
     {

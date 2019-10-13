@@ -36,12 +36,7 @@ void loop()
         buzzer.turnSoundOff();
         set_rgb_led(0, 0, 0);
     }
-    
-    if (button.wasPressed())
-    {
-        buzzer.turnSoundOn();
-    }
-    if (!buzzer.isMelodyEnd())
+    else
     {
         if (isBrightRed)
         {
@@ -53,6 +48,11 @@ void loop()
             set_rgb_led(red-200, 0, 0);
             isBrightRed = true;
         }
+    }
+    
+    if (button.wasPressed())
+    {
+        buzzer.turnSoundOn();
     }
     buzzer.playSound();
 }

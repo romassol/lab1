@@ -48,6 +48,7 @@ void loop()
             set_rgb_led(red-200, 0, 0);
             isBrightRed = true;
         }
+        delay(1000);
     }
     
     if (button.wasPressed())
